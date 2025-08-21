@@ -42,9 +42,9 @@ module PluckMap
         #
         # ActiveRecord::Associations::AssociationScope expects the latter.
         #
-        model._reflections.fetch(name.to_s) do
+        reflections = model._reflections
+        reflections[name.to_s] || reflections[name.to_sym] or
           raise ArgumentError, "#{name} is not an association on #{model}"
-        end
       end
 
       def association_for(reflection)
@@ -81,6 +81,10 @@ module PluckMap
 
         def [](value)
           self.class.arel_table[value]
+        end
+
+        def _read_attribute(attr_name)
+          self[attr_name]
         end
       end
 

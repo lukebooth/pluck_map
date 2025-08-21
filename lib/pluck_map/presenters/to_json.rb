@@ -38,7 +38,8 @@ module PluckMap
       end
       RUBY
       # puts "\e[34m#{ruby}\e[0m" # <-- helps debugging PluckMapPresenter
-      class_eval ruby, __FILE__, __LINE__ - ruby.length
+      klass = self.is_a?(Class) ? self : self.class
+      klass.class_eval ruby, __FILE__, __LINE__ - ruby.length
     end
 
     def to_json_object(attributes)

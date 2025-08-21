@@ -1,7 +1,7 @@
 require "rubygems"
 
 require "minitest/reporters/turn_reporter"
-MiniTest::Reporters.use! Minitest::Reporters::TurnReporter.new
+Minitest::Reporters.use! Minitest::Reporters::TurnReporter.new
 
 require "database_cleaner"
 require "pluck_map"

@@ -1,30 +1,26 @@
-appraise "rails-4.2" do
-  gem "activerecord", "~> 4.2.0"
-  gem "sqlite3", "~> 1.3.6"
-  gem "pg", "~> 0.20"
-end
-
-appraise "rails-5.0" do
-  gem "activerecord", "~> 5.0.0"
-  gem "sqlite3", "~> 1.3.6"
-end
-
-appraise "rails-5.1" do
-  gem "activerecord", "~> 5.1.0"
-  gem "sqlite3", "~> 1.3.6"
-end
-
-appraise "rails-5.2" do
-  gem "activerecord", "~> 5.2.0"
-  gem "sqlite3", "~> 1.3.6"
-end
-
 appraise "rails-6.0" do
   gem "activerecord", "~> 6.0.0"
-  gem "sqlite3", "~> 1.4.0"
+  gem 'concurrent-ruby', '1.3.4'
+  gem "sqlite3"
 end
 
-appraise "rails-edge" do
-  gem "rails", git: "https://github.com/rails/rails.git", branch: "master", require: "activerecord"
-  gem "sqlite3", "~> 1.4.0"
+appraise "rails-7.0" do
+  gem "rails", "~> 7.0.0"
+  gem 'concurrent-ruby', '1.3.4'
+  gem "sqlite3"
+end
+
+appraise "rails-7.1" do
+  gem "rails", "~> 7.1.0"
+  gem "sqlite3"
+end
+
+appraise "rails-7.2" do
+  gem "rails", "~> 7.2.0"
+  gem "sqlite3"
+end
+
+appraise "rails-8.0" do
+  gem "rails", "~> 8.0.0"
+  gem "sqlite3"
 end

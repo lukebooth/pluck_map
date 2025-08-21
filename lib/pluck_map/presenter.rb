@@ -4,6 +4,7 @@ require "pluck_map/nodes"
 require "pluck_map/presenters"
 require "pluck_map/visitors"
 require "active_record"
+require "benchmark"
 
 module PluckMap
   class Presenter
@@ -35,8 +36,8 @@ module PluckMap
 
     def benchmark(title)
       result = nil
-      ms = Benchmark.ms { result = yield }
-      PluckMap.logger.info "\e[33m#{title}: \e[1m%.1fms\e[0m" % ms
+      ms = Benchmark.realtime { result = yield }
+      PluckMap.logger.info "\e[33m#{title}: \e[1m%.1fms\e[0m" % (ms * 1000)
       result
     end
 
